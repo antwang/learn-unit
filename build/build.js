@@ -1,6 +1,6 @@
 const parseArgs = require("minimist");
 const webpack = require("webpack");
-const webpackConfig = require("./webpack.prod");
+const webpackConfig = require("./webpack.config.prod");
 const argv = parseArgs(process.argv.slice(2));
 const { modern, env } = argv;
 let browsers = {
