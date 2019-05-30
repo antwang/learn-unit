@@ -22,7 +22,6 @@ class ModernBuildPlugin {
         ID,
         async (data, cb) => {
           const htmlName = path.basename(data.plugin.options.filename);
-
           const htmlPath = path.dirname(data.plugin.options.filename);
           const tempFilename = path.join(
             htmlPath,
@@ -70,6 +69,7 @@ class ModernBuildPlugin {
             a.attributes.nomodule = "";
           });
           data.body.push(...legacyAssets);
+
           await fs.remove(tempFilename);
           cb();
         }

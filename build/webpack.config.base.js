@@ -3,18 +3,16 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 const SpritesmithPlugin = require("webpack-spritesmith");
-// 雪碧图模板函数
-const templateFunction = require("./spriteFuncTemplate");
+const { templateFunction } = require("./util");
 
-module.exports = {
+const baseConf = {
   entry: { app: path.resolve(__dirname, "../src/app.js") },
   output: {
-    filename: "[name].js",
+    filename: "js/[name].js",
     path: path.resolve(__dirname, "../dist"),
     publicPath: ""
   },
-  mode: "development",
-  devtool: "eval-source-map",
+  mode: "none",
   resolve: {
     modules: ["../node_modules", "../src/assets/generated"]
   },
@@ -33,46 +31,6 @@ module.exports = {
         test: /\.vue$/,
         exclude: /node_modules/,
         loader: "vue-loader"
-      },
-      {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8092,
-              name: "img/[hash:7].[ext]"
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8092,
-              name: "media/[hash:7].[ext]"
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8092,
-              name: "font/[hash:7].[ext]"
-            }
-          }
-        ]
       }
     ]
   },
@@ -111,3 +69,4 @@ module.exports = {
     })
   ]
 };
+module.exports = baseConf;

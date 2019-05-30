@@ -26,7 +26,7 @@ $black: black;
 $yellow: yellow;
 
 h2 {
-  font-size: 40px;
+  font-size: 20px;
   color: $black;
   background: $yellow;
   text-align: center;
