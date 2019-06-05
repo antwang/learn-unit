@@ -3,6 +3,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 const SpritesmithPlugin = require("webpack-spritesmith");
+const DebugPlugin = require("debugtool-webpack-plugin");
 const { templateFunction } = require("./util");
 
 const baseConf = {
@@ -36,6 +37,7 @@ const baseConf = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new DebugPlugin({ enable: true }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../public/index.html"),
       title: "项目模板"
