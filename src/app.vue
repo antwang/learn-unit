@@ -11,13 +11,8 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import api from "../mock/api.js";
 export default {
-  async created() {
-    let res = await axios.get(api.getUserInfo);
-    console.log(res);
-  }
+  async created() {}
 };
 </script>
 <style lang="scss">
