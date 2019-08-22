@@ -43,7 +43,7 @@ const baseConf = {
       title: "项目模板"
     }),
     new StyleLintPlugin({
-      files: ["src/**/*.{vue, css, sass, scss}", "!src/assets/generated/"]
+      files: ["src/**/*.{vue,css,sass,scss}"]
     }),
     new SpritesmithPlugin({
       src: {
